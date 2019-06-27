@@ -6,16 +6,30 @@ Node.js 10.3.x+
 MacOS, Linux, Windows
 ## How to use:
 Clone recucu in your project directory.<br/>
-Create 2 default directories on one level up outside of recucu:
-- For reusable parts - **feature_parts**
-- For initial files to start generation - **feature_sources**<br/>
 
-Create recucu.json file on one level up outside of recucu with empty object:
-<code>\{\}</code><br/>
+Install all node packages inside recucu:<br/>
+<code>npm i</code>
+
+Create 2 default directories on one level up outside of recucu:
+- For reusable parts in format of <code>.feature</code> files - **feature_parts**
+- For initial files to start generation in format of <code>.feature</code> files - **feature_sources**<br/>
+
+Create recucu.json file on one level up from recucu with empty object:
+<code>{}</code><br/>
 
 Reusable feature files store steps to insert into initial files.<br/>
 Initial files may contain steps with specific pattern to make replacement after generation:<br/>
-<code>When user is running steps from <scenario_name> in <feature_file_name></code><br/>
+<code>When running steps from <scenario_name> scenario in <feature_file_name> file</code><br/>
+  
+**Example:**
+```
+Feature: Home page functionality
+
+  Scenario: Logout
+    When running steps from Sign in via Google account scenario in sign_in file 
+    When user clicks button with text "Logout"
+    ...
+```
   
 Run with command:<br/>
 <code>node --harmony ./recucu/index.js</code><br/>
