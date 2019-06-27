@@ -102,7 +102,7 @@ const apply_multiple_runs = (times_to_run, scenario_str) => {
 /*All check functions for generating steps from scenario in some feature-like file should return object with properties:
 * "result", "value:{scenario_name, file_name}".
 * "scenario_str_transformer" property in value object is optional.*/
-const run_steps_from_scenario_in_file_regexp = /^ *run +steps +from +((?:.| )*) +scenario +in +((?:.| )*) +file *$/;
+const run_steps_from_scenario_in_file_regexp = /^ *running +steps +from +((?:.| )*) +scenario +in +((?:.| )*) +file *$/;
 const check_is_run_steps_from_scenario_in_file_step = (step_main_data) => {
     let match = step_main_data.text.match(run_steps_from_scenario_in_file_regexp);
     if (match == null) {
